@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   AppBar,
   Avatar,
   Badge,
   Box,
   InputBase,
+  Menu,
+  MenuItem,
   styled,
   Toolbar,
   Typography,
 } from '@mui/material';
 import { FacebookSharp, Mail, Notifications } from '@mui/icons-material';
-import { flexbox } from '@mui/system';
 
 const StyledToolbar = styled(Toolbar)({
   display: 'flex',
@@ -43,6 +44,8 @@ const UserBox = styled(Box)(({ theme }) => ({
 }));
 
 function Navbar() {
+  const [open, setOpen] = useState(false);
+
   return (
     <AppBar position="sticky">
       <StyledToolbar>
@@ -64,9 +67,10 @@ function Navbar() {
             alt="user avatar"
             src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg"
             sx={{ width: 40, height: 40 }}
+            onClick={() => setOpen(true)}
           />
         </Icons>
-        <UserBox>
+        <UserBox onClick={() => setOpen(true)}>
           <Avatar
             alt="user avatar"
             src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg"
@@ -75,6 +79,24 @@ function Navbar() {
           <Typography variant="span">Susan</Typography>
         </UserBox>
       </StyledToolbar>
+      <Menu
+        id="demo-positioned-menu"
+        aria-labelledby="demo-positioned-button"
+        open={open}
+        onClose={() => setOpen(false)}
+        anchorOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
+        }}
+      >
+        <MenuItem>Profile</MenuItem>
+        <MenuItem>My account</MenuItem>
+        <MenuItem>Logout</MenuItem>
+      </Menu>
     </AppBar>
   );
 }
