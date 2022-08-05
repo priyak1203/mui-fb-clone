@@ -10,6 +10,7 @@ import {
   Typography,
 } from '@mui/material';
 import { FacebookSharp, Mail, Notifications } from '@mui/icons-material';
+import { flexbox } from '@mui/system';
 
 const StyledToolbar = styled(Toolbar)({
   display: 'flex',
@@ -24,9 +25,21 @@ const Search = styled('div')(({ theme }) => ({
 }));
 
 const Icons = styled(Box)(({ theme }) => ({
-  display: 'flex',
+  display: 'none',
   gap: '20px',
   alignItems: 'center',
+  [theme.breakpoints.up('sm')]: {
+    display: 'flex',
+  },
+}));
+
+const UserBox = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  gap: '10px',
+  alignItems: 'center',
+  [theme.breakpoints.up('sm')]: {
+    display: 'none',
+  },
 }));
 
 function Navbar() {
@@ -53,6 +66,14 @@ function Navbar() {
             sx={{ width: 40, height: 40 }}
           />
         </Icons>
+        <UserBox>
+          <Avatar
+            alt="user avatar"
+            src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg"
+            sx={{ width: 40, height: 40 }}
+          />
+          <Typography variant="span">Susan</Typography>
+        </UserBox>
       </StyledToolbar>
     </AppBar>
   );
