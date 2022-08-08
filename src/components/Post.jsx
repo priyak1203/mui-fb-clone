@@ -2,7 +2,6 @@ import React from 'react';
 import { Favorite, FavoriteBorder, MoreVert, Share } from '@mui/icons-material';
 import {
   Avatar,
-  Box,
   Card,
   CardActions,
   CardContent,
@@ -13,13 +12,13 @@ import {
   Typography,
 } from '@mui/material';
 
-const Post = () => {
+const Post = ({ username, date, img, imgDetails, initials, description }) => {
   return (
     <Card sx={{ margin: 5 }}>
       <CardHeader
         avatar={
-          <Avatar sx={{ bgcolor: 'blue' }} aria-label="Aurora Borealis">
-            R
+          <Avatar sx={{ bgcolor: 'purple' }} aria-label="Aurora Borealis">
+            {initials}
           </Avatar>
         }
         action={
@@ -27,20 +26,13 @@ const Post = () => {
             <MoreVert />
           </IconButton>
         }
-        title="John Doe"
-        subheader="September 14, 2021"
+        title={username}
+        subheader={date}
       />
-      <CardMedia
-        component="img"
-        height="350"
-        image="https://images.pexels.com/photos/624015/pexels-photo-624015.jpeg"
-        alt="Aurora Borealis"
-      />
+      <CardMedia component="img" height="350" image={img} alt={imgDetails} />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          This impressive paella is a perfect party dish and a fun meal to cook
-          together with your guests. Add 1 cup of frozen peas along with the
-          mussels, if you like.
+          {description}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
