@@ -50,7 +50,7 @@ function Navbar() {
     <AppBar position="sticky">
       <StyledToolbar>
         <Typography variant="h6" sx={{ display: { xs: 'none', sm: 'block' } }}>
-          FB CLONE
+          FriendzBook
         </Typography>
         <FacebookSharp sx={{ display: { xs: 'block', sm: 'none' } }} />
         <Search>
