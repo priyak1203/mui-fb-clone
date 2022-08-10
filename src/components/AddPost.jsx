@@ -1,6 +1,8 @@
 import {
   Avatar,
   Box,
+  Button,
+  ButtonGroup,
   Fab,
   Modal,
   Stack,
@@ -9,8 +11,10 @@ import {
   Tooltip,
   Typography,
 } from '@mui/material';
+
 import {
   Add,
+  DateRange,
   Image,
   EmojiEmotions,
   PersonAdd,
@@ -75,12 +79,22 @@ const AddPost = () => {
             placeholder="What's on your mind?"
             variant="standard"
           />
-          <Stack direction="row" mt={2} gap={1}>
+          <Stack direction="row" mt={2} gap={1} mb={3}>
             <EmojiEmotions color="primary" />
             <Image color="secondary" />
             <VideoCameraBack color="success" />
             <PersonAdd color="error" />
           </Stack>
+          <ButtonGroup
+            fullWidth
+            variant="contained"
+            aria-label="outlined primary button group"
+          >
+            <Button>Post</Button>
+            <Button sx={{ width: '100px' }}>
+              <DateRange />
+            </Button>
+          </ButtonGroup>
         </Box>
       </StyldModal>
     </>
