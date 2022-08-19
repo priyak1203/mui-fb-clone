@@ -8,7 +8,7 @@ function Feed() {
 
   setTimeout(() => {
     setLoading(false);
-  }, 5000);
+  }, 3000);
   return (
     <Box flex={4} p={2}>
       {loading ? (
